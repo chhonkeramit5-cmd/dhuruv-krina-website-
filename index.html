@@ -1,73 +1,169 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta name="google-site-verification" content="7CtjnJzpZuumSSYPbhV9cKYiZBlc1nHcVIgQS8s2y9w" />
+<meta name="google-site-verification" content="7CtjnJzpZuumSSYPbhV9cKYiZBlc1nHcVIgQS8s2y9w">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dhruv Krina & Pashu Aahar - किराना सामान और पशु आहार">
-<title>Dhruv Krina & Pashu Aahar</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="DhuruvShop - किराना और पशु आहार की ऑनलाइन दुकान">
+<title>DhuruvShop | किराना & पशु आहार</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:#f6f8f4;color:#202820}
-a{text-decoration:none}
+body{font-family:Arial,sans-serif;background:#f5f7f5;color:#222}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
 header{
-  background:linear-gradient(135deg,#075e2b,#159447);
-  color:#fff;text-align:center;padding:34px 16px 30px
+background:linear-gradient(135deg,#075e2b,#19a957);
+color:#fff;text-align:center;padding:25px 15px
 }
-.logo{font-size:50px}
-header h1{font-size:30px;margin:7px 0}
-header p{font-size:16px;opacity:.95}
+header .logo{font-size:48px}
+header h1{font-size:32px;margin:5px}
+header p{font-size:15px}
 nav{
-  position:sticky;top:0;z-index:20;background:#fff;
-  padding:13px 8px;text-align:center;box-shadow:0 2px 10px #0002
+position:sticky;top:0;z-index:50;background:#fff;
+padding:13px 5px;text-align:center;
+box-shadow:0 2px 12px #0002
 }
-nav a{color:#075e2b;font-weight:700;margin:0 9px;font-size:14px}
+nav a{
+text-decoration:none;color:#075e2b;font-weight:bold;
+margin:0 7px;font-size:14px
+}
 .hero{
-  padding:52px 18px;text-align:center;
-  background:linear-gradient(180deg,#e8f8ed,#f6f8f4)
+text-align:center;padding:55px 15px;
+background:linear-gradient(#e5f8eb,#f5f7f5)
 }
-.hero h2{font-size:29px;color:#075e2b;margin-bottom:12px}
-.hero p{max-width:650px;margin:auto auto 22px;font-size:17px}
+.hero h2{font-size:31px;color:#075e2b;margin-bottom:12px}
+.hero p{font-size:17px;margin-bottom:22px}
 .btn{
-  display:inline-block;padding:13px 21px;border-radius:30px;
-  color:#fff;font-weight:700;margin:5px;background:#075e2b
+display:inline-block;border:0;border-radius:30px;
+padding:13px 21px;margin:4px;
+background:#075e2b;color:white;
+font-weight:bold;text-decoration:none
 }
-.btn.green{background:#20ad57}
-section{max-width:1050px;margin:auto;padding:42px 17px}
-.title{text-align:center;color:#075e2b;font-size:27px;margin-bottom:9px}
-.subtitle{text-align:center;color:#667066;margin-bottom:25px}
+.green{background:#20ad57!important}
+.orange{background:#f28c00!important}
+section{max-width:1150px;margin:auto;padding:38px 15px}
+.title{text-align:center;color:#075e2b;font-size:28px}
+.subtitle{text-align:center;color:#687168;margin:8px 0 25px}
+.tools{
+background:#fff;padding:18px;border-radius:18px;
+box-shadow:0 3px 15px #0001;margin-bottom:25px
+}
+.search{
+width:100%;padding:14px 18px;border:2px solid #dce8de;
+border-radius:30px;outline:0;margin-bottom:13px
+}
+.search:focus{border-color:#20ad57}
+.categories{display:flex;gap:8px;overflow-x:auto}
+.categories button{
+border:0;background:#e8f5eb;color:#075e2b;
+padding:9px 15px;border-radius:22px;white-space:nowrap;
+font-weight:bold
+}
+.categories button.active{background:#075e2b;color:#fff}
 .grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px
+display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
+gap:16px
 }
-.card{
-  background:#fff;border-radius:17px;padding:22px 15px;text-align:center;
-  box-shadow:0 4px 16px #00000012;border:1px solid #e7eee7
+.product{
+background:#fff;border-radius:18px;padding:12px;
+box-shadow:0 4px 16px #00000012;
+border:1px solid #e7eee7;text-align:center;
+position:relative;overflow:hidden
 }
-.card .icon{font-size:45px;margin-bottom:8px}
-.card h3{color:#075e2b;margin-bottom:6px}
-.card p{font-size:14px;color:#606960}
-.badge{
-  display:inline-block;background:#e8f7ed;color:#075e2b;
-  padding:5px 10px;border-radius:20px;font-size:12px;margin-top:10px;font-weight:bold
+.product-img{
+height:150px;border-radius:14px;background:#f2f8f3;
+display:flex;align-items:center;justify-content:center;
+overflow:hidden;margin-bottom:12px
 }
-.about{
-  background:#fff;border-radius:20px;padding:25px;
-  box-shadow:0 4px 16px #0000000d
+.product-img img{width:100%;height:100%;object-fit:contain}
+.offer{
+position:absolute;top:9px;left:9px;background:#e53935;
+color:white;padding:4px 8px;border-radius:10px;
+font-size:11px;font-weight:bold
 }
-.about p{margin:9px 0;color:#505850}
+.product h3{color:#075e2b;font-size:18px;margin-bottom:5px}
+.unit{font-size:13px;color:#777}
+.price{font-size:20px;color:#159447;font-weight:bold;margin:8px}
+.old{font-size:13px;color:#999;text-decoration:line-through;margin-right:5px}
+.qty{
+display:flex;align-items:center;justify-content:center;
+gap:10px;margin:10px
+}
+.qty button{
+width:34px;height:34px;border:0;border-radius:50%;
+background:#e7f4ea;color:#075e2b;font-size:20px;font-weight:bold
+}
+.qty span{font-weight:bold;min-width:22px}
+.add{
+width:100%;border:0;padding:11px;border-radius:25px;
+background:#075e2b;color:white;font-weight:bold
+}
+.cart{
+background:white;border-radius:20px;padding:18px;
+box-shadow:0 4px 18px #0001
+}
+.cart-item{
+display:flex;justify-content:space-between;align-items:center;
+gap:10px;padding:13px 0;border-bottom:1px solid #eee
+}
+.cart-name{font-weight:bold;color:#075e2b}
+.cart-price{font-size:13px;color:#666}
+.cart-controls{display:flex;align-items:center;gap:7px}
+.cart-controls button{
+width:30px;height:30px;border:0;border-radius:50%;
+background:#e8f5eb;color:#075e2b
+}
+.total{
+display:flex;justify-content:space-between;
+font-size:22px;font-weight:bold;color:#075e2b;
+padding:18px 0
+}
+.empty{text-align:center;padding:25px;color:#777}
+.checkout{
+background:#fff;border-radius:20px;padding:22px;
+box-shadow:0 4px 18px #0001
+}
+.checkout label{display:block;font-weight:bold;margin-top:8px}
+.checkout input,.checkout textarea,.checkout select{
+width:100%;padding:13px;margin:6px 0 10px;
+border:1px solid #d7e0d8;border-radius:10px;outline:0
+}
+.checkout textarea{min-height:90px}
+.order{
+width:100%;border:0;border-radius:30px;
+padding:15px;background:#20ad57;color:white;
+font-size:17px;font-weight:bold
+}
 .contact{
-  max-width:none;background:#075e2b;color:#fff;text-align:center
+max-width:none;background:#075e2b;color:#fff;text-align:center
 }
 .contact .title{color:#fff}
-.phone{font-size:27px;font-weight:800;margin:12px}
-footer{background:#06421f;color:#fff;text-align:center;padding:22px 15px}
+.phone{font-size:28px;font-weight:bold;margin:12px}
+footer{
+background:#06421f;color:white;text-align:center;padding:22px
+}
 .small{font-size:12px;opacity:.8;margin-top:8px}
+.cart-float{
+position:fixed;right:18px;bottom:18px;z-index:100;
+width:62px;height:62px;border:0;border-radius:50%;
+background:#075e2b;color:white;font-size:25px;
+box-shadow:0 5px 20px #0004
+}
+.count{
+position:absolute;right:-2px;top:-2px;width:22px;height:22px;
+border-radius:50%;background:#e53935;color:white;
+font-size:12px;display:flex;align-items:center;justify-content:center
+}
 @media(max-width:500px){
- header h1{font-size:25px}
- .hero h2{font-size:25px}
- nav a{margin:0 5px}
+header h1{font-size:25px}
+.hero h2{font-size:25px}
+.grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.product{padding:9px}
+.product-img{height:115px}
+.product h3{font-size:15px}
+.price{font-size:17px}
+nav a{font-size:12px;margin:0 4px}
 }
 </style>
 </head>
@@ -75,76 +171,381 @@ footer{background:#06421f;color:#fff;text-align:center;padding:22px 15px}
 <body>
 
 <header>
-  <div class="logo">🌾🐄</div>
-  <h1>Dhruv Krina & Pashu Aahar</h1>
-  <p>किराना सामान • पशु आहार • पशु चारा</p>
+<div class="logo">🛍️</div>
+<h1>DhuruvShop</h1>
+<p>किराना • पशु आहार • रोज़मर्रा का सामान</p>
 </header>
 
 <nav>
-  <a href="#home">होम</a>
-  <a href="#kirana">किराना</a>
-  <a href="#pashu">पशु आहार</a>
-  <a href="#contact">संपर्क</a>
+<a href="#home">होम</a>
+<a href="#shop">शॉप</a>
+<a href="#cart">🛒 Cart</a>
+<a href="#order">ऑर्डर</a>
+<a href="#contact">संपर्क</a>
 </nav>
 
 <section class="hero" id="home">
-  <h2>आपका स्वागत है! 👋</h2>
-  <p>घर की रोज़मर्रा की जरूरतों और पशुओं के लिए जरूरी सामान एक ही जगह।</p>
-  <a class="btn" href="tel:9045682863">📞 Call Now</a>
-  <a class="btn green" href="https://wa.me/919045682863" target="_blank">💬 WhatsApp</a>
+<h2>🛒 DhuruvShop में आपका स्वागत है</h2>
+<p>घर की जरूरत का सामान और पशु आहार आसानी से ऑर्डर करें।</p>
+<a class="btn" href="#shop">🛍️ Shopping करें</a>
+<a class="btn green" href="https://wa.me/919045682863" target="_blank">💬 WhatsApp</a>
 </section>
 
-<section id="kirana">
-  <h2 class="title">🛒 किराना सामान</h2>
-  <p class="subtitle">रोज़मर्रा में काम आने वाले सामान्य सामान</p>
-  <div class="grid">
-    <div class="card"><div class="icon">🍚</div><h3>चावल</h3><p>अलग-अलग प्रकार के चावल</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🌾</div><h3>आटा</h3><p>गेहूँ का आटा और अन्य आटा</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🫘</div><h3>दालें</h3><p>रोज़मर्रा की अलग-अलग दालें</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🍬</div><h3>चीनी</h3><p>घर के उपयोग के लिए चीनी</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🧂</div><h3>नमक</h3><p>खाने में इस्तेमाल होने वाला नमक</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🛢️</div><h3>खाद्य तेल</h3><p>रसोई में इस्तेमाल होने वाले तेल</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">☕</div><h3>चाय</h3><p>चाय और रोज़मर्रा के पेय पदार्थ</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🌶️</div><h3>मसाले</h3><p>रसोई के जरूरी मसाले</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🥔</div><h3>आलू</h3><p>रोज़मर्रा की सब्ज़ी</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🧅</div><h3>प्याज़</h3><p>रसोई के लिए प्याज़</p><span class="badge">उपलब्धता पूछें</span></div>
-  </div>
+<section id="shop">
+<h2 class="title">🛍️ हमारे Products</h2>
+<p class="subtitle">अपना सामान चुनें</p>
+
+<div class="tools">
+<input id="search" class="search"
+placeholder="🔎 Product खोजें..."
+oninput="renderProducts()">
+
+<div class="categories">
+<button class="active" onclick="category('all',this)">सभी</button>
+<button onclick="category('kirana',this)">🛒 किराना</button>
+<button onclick="category('dal',this)">🫘 दाल</button>
+<button onclick="category('masala',this)">🌶️ मसाले</button>
+<button onclick="category('snacks',this)">🍪 Snacks</button>
+<button onclick="category('drink',this)">🥤 पेय</button>
+<button onclick="category('pashu',this)">🐄 पशु आहार</button>
+</div>
+</div>
+
+<div class="grid" id="products"></div>
 </section>
 
-<section id="pashu">
-  <h2 class="title">🐄 पशु आहार और चारा</h2>
-  <p class="subtitle">गाय, भैंस और अन्य पशुओं के लिए</p>
-  <div class="grid">
-    <div class="card"><div class="icon">🐄</div><h3>पशु आहार</h3><p>पशुओं के लिए सामान्य feed</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🌾</div><h3>चारा</h3><p>पशुओं के लिए उपयोगी चारा</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🌽</div><h3>दाना</h3><p>पशुओं के लिए विभिन्न दाने</p><span class="badge">उपलब्धता पूछें</span></div>
-    <div class="card"><div class="icon">🥣</div><h3>फीड</h3><p>उपलब्ध पशु feed की जानकारी लें</p><span class="badge">उपलब्धता पूछें</span></div>
-  </div>
+<section id="cart">
+<h2 class="title">🛒 आपका Cart</h2>
+<p class="subtitle">आपके चुने हुए सामान</p>
+
+<div class="cart">
+<div id="cartItems"></div>
+<div class="total">
+<span>Total</span>
+<span id="total">₹0</span>
+</div>
+<a class="btn green" href="#order" style="width:100%;text-align:center">
+📦 Checkout
+</a>
+</div>
 </section>
 
-<section>
-  <h2 class="title">⭐ हमारी दुकान</h2>
-  <div class="about">
-    <p>🛍️ किराना और पशु आहार के लिए एक ही जगह।</p>
-    <p>📦 उपलब्ध सामान और कीमत के लिए सीधे संपर्क करें।</p>
-    <p>📱 WhatsApp पर product के बारे में पूछ सकते हैं।</p>
-    <p>💡 कीमतें अभी वेबसाइट पर नहीं दी गई हैं, ताकि आप अपनी दुकान की वास्तविक कीमतें बाद में जोड़ सकें।</p>
-  </div>
+<section id="order">
+<h2 class="title">📦 Order Form</h2>
+<p class="subtitle">जानकारी भरें और WhatsApp पर भेजें</p>
+
+<div class="checkout">
+
+<label>👤 नाम</label>
+<input id="name" placeholder="अपना नाम">
+
+<label>📞 मोबाइल नंबर</label>
+<input id="mobile" type="tel" placeholder="मोबाइल नंबर">
+
+<label>📍 पता</label>
+<textarea id="address" placeholder="पूरा पता"></textarea>
+
+<label>💳 Payment</label>
+<select id="payment">
+<option>Cash on Delivery</option>
+<option>UPI / Online Payment</option>
+<option>दुकान से Pickup</option>
+</select>
+
+<button class="order" onclick="sendOrder()">
+💬 WhatsApp पर Order भेजें
+</button>
+
+</div>
 </section>
 
 <section class="contact" id="contact">
-  <h2 class="title">📞 हमसे संपर्क करें</h2>
-  <p>किसी सामान की उपलब्धता पूछने के लिए संपर्क करें।</p>
-  <div class="phone">9045682863</div>
-  <a class="btn" href="tel:9045682863">📞 Call करें</a>
-  <a class="btn green" href="https://wa.me/919045682863" target="_blank">💬 WhatsApp करें</a>
-  <p class="small">📍 दुकान का पता बाद में यहाँ जोड़ा जा सकता है।</p>
+<h2 class="title">📞 संपर्क करें</h2>
+<p>Product की जानकारी या order के लिए संपर्क करें।</p>
+
+<div class="phone">9045682863</div>
+
+<a class="btn" href="tel:9045682863">📞 Call</a>
+<a class="btn green"
+href="https://wa.me/919045682863"
+target="_blank">💬 WhatsApp</a>
 </section>
 
 <footer>
-  <p>© 2026 Dhruv Krina & Pashu Aahar</p>
-  <p class="small">सभी अधिकार सुरक्षित</p>
+<p>© 2026 DhuruvShop</p>
+<p class="small">किराना और पशु आहार</p>
 </footer>
 
+<button class="cart-float" onclick="location.href='#cart'">
+🛒 <span class="count" id="count">0</span>
+</button>
+
+<script>
+
+const products=[
+
+["चावल","1 Kg",60,70,"kirana","🍚","OFF"],
+["गेहूँ आटा","1 Kg",45,50,"kirana","🌾",""],
+["बासमती चावल","1 Kg",110,125,"kirana","🍚","SALE"],
+["चीनी","1 Kg",48,52,"kirana","🍬",""],
+["नमक","1 Kg",25,28,"kirana","🧂",""],
+["सरसों तेल","1 L",145,160,"kirana","🛢️","SALE"],
+["रिफाइंड तेल","1 L",135,150,"kirana","🛢️",""],
+["चाय","250 g",85,95,"drink","☕",""],
+["कॉफी","100 g",95,110,"drink","☕",""],
+["बिस्कुट","Packet",10,12,"snacks","🍪",""],
+["मैगी","Packet",14,16,"snacks","🍜",""],
+["नूडल्स","Packet",30,35,"snacks","🍜",""],
+["टूथपेस्ट","100 g",55,65,"kirana","🪥",""],
+["साबुन","1 Pc",35,40,"kirana","🧼",""],
+["डिटर्जेंट","1 Kg",70,80,"kirana","🧺",""],
+["हल्दी","100 g",25,30,"masala","🌶️",""],
+["लाल मिर्च","100 g",30,35,"masala","🌶️",""],
+["धनिया","100 g",28,32,"masala","🌿",""],
+["गरम मसाला","100 g",55,65,"masala","🌶️",""],
+["जीरा","100 g",45,50,"masala","🌿",""],
+["अरहर दाल","1 Kg",150,165,"dal","🫘","SALE"],
+["मूंग दाल","1 Kg",125,140,"dal","🫘",""],
+["मसूर दाल","1 Kg",105,120,"dal","🫘",""],
+["चना दाल","1 Kg",90,100,"dal","🫘",""],
+["उड़द दाल","1 Kg",130,145,"dal","🫘",""],
+["राजमा","1 Kg",140,155,"dal","🫘",""],
+["काबुली चना","1 Kg",120,135,"dal","🫘",""],
+["कोल्ड ड्रिंक","750 ml",45,50,"drink","🥤",""],
+["जूस","1 L",100,115,"drink","🧃","SALE"],
+["नमकीन","200 g",45,50,"snacks","🥨",""],
+["चिप्स","Packet",20,25,"snacks","🥔",""],
+["टॉफी","100 g",35,40,"snacks","🍬",""],
+["सूजी","1 Kg",55,65,"kirana","🌾",""],
+["मैदा","1 Kg",50,60,"kirana","🌾",""],
+["बेसन","1 Kg",80,90,"kirana","🌾",""],
+["पोहा","1 Kg",60,70,"kirana","🌾",""],
+["पशु आहार","1 Kg",35,40,"pashu","🐄",""],
+["डेयरी फीड","1 Kg",38,45,"pashu","🥣","SALE"],
+["पशु दाना","1 Kg",32,38,"pashu","🌾",""],
+["गेहूँ चोकर","1 Kg",28,32,"pashu","🌾",""],
+["सरसों खली","1 Kg",42,48,"pashu","🌾",""],
+["बिनौला","1 Kg",35,40,"pashu","🌾",""],
+["मक्का दाना","1 Kg",30,35,"pashu","🌽",""],
+["जौ","1 Kg",32,37,"pashu","🌾",""],
+["चारा","1 Kg",20,25,"pashu","🌿",""],
+["पशु मिनरल मिक्स","1 Kg",120,140,"pashu","🥣","SALE"],
+["कैल्शियम फीड","1 Kg",95,110,"pashu","🥣",""],
+["पशु फीड प्रीमियम","1 Kg",55,65,"pashu","🐄","SALE"]
+];
+
+let cart=JSON.parse(localStorage.getItem("dhuruvCart")||"{}");
+let current="all";
+
+function img(icon,name){
+
+let svg=`
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500">
+<rect width="700" height="500" rx="40" fill="#f0f8f2"/>
+<rect x="30" y="30" width="640" height="440" rx="35" fill="white"/>
+<text x="350" y="105" text-anchor="middle"
+font-family="Arial" font-size="30" font-weight="bold"
+fill="#075e2b">DHURUVSHOP</text>
+<circle cx="350" cy="265" r="130" fill="#e7f5ea"/>
+<text x="350" y="315" text-anchor="middle" font-size="135">${icon}</text>
+<text x="350" y="425" text-anchor="middle"
+font-family="Arial" font-size="30" font-weight="bold"
+fill="#075e2b">${name}</text>
+</svg>`;
+
+return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+}
+
+function category(c,b){
+
+current=c;
+
+document.querySelectorAll(".categories button")
+.forEach(x=>x.classList.remove("active"));
+
+b.classList.add("active");
+
+renderProducts();
+}
+
+function renderProducts(){
+
+let search=document.getElementById("search").value.toLowerCase();
+
+let list=products.filter(p=>
+(current==="all"||p[4]===current)&&
+p[0].toLowerCase().includes(search)
+);
+
+document.getElementById("products").innerHTML=list.map((p,i)=>{
+
+let id=products.indexOf(p);
+let q=cart[id]||0;
+
+return `
+<div class="product">
+
+${p[6]?`<span class="offer">${p[6]}</span>`:""}
+
+<div class="product-img">
+<img src="${img(p[5],p[0])}" alt="${p[0]}">
+</div>
+
+<h3>${p[0]}</h3>
+<div class="unit">${p[1]}</div>
+
+<div class="price">
+<span class="old">₹${p[3]}</span>
+₹${p[2]}
+</div>
+
+<div class="qty">
+<button onclick="change(${id},-1)">−</button>
+<span>${q}</span>
+<button onclick="change(${id},1)">+</button>
+</div>
+
+<button class="add" onclick="add(${id})">
+🛒 Add to Cart
+</button>
+
+</div>`;
+}).join("");
+
+}
+
+function save(){
+localStorage.setItem("dhuruvCart",JSON.stringify(cart));
+}
+
+function change(id,n){
+
+cart[id]=(cart[id]||0)+n;
+
+if(cart[id]<=0)delete cart[id];
+
+save();
+renderProducts();
+renderCart();
+}
+
+function add(id){
+
+cart[id]=(cart[id]||0)+1;
+
+save();
+renderProducts();
+renderCart();
+
+location.hash="cart";
+}
+
+function remove(id){
+
+delete cart[id];
+
+save();
+renderProducts();
+renderCart();
+}
+
+function renderCart(){
+
+let box=document.getElementById("cartItems");
+let total=0,count=0;
+let ids=Object.keys(cart);
+
+if(!ids.length){
+
+box.innerHTML='<div class="empty">🛒 Cart खाली है</div>';
+document.getElementById("total").innerText="₹0";
+document.getElementById("count").innerText="0";
+return;
+}
+
+box.innerHTML=ids.map(id=>{
+
+let p=products[id];
+let q=cart[id];
+let sub=p[2]*q;
+
+total+=sub;
+count+=q;
+
+return `
+<div class="cart-item">
+<div>
+<div class="cart-name">${p[0]}</div>
+<div class="cart-price">₹${p[2]} × ${q} = ₹${sub}</div>
+</div>
+
+<div class="cart-controls">
+<button onclick="change(${id},-1)">−</button>
+<b>${q}</b>
+<button onclick="change(${id},1)">+</button>
+<button onclick="remove(${id})">🗑️</button>
+</div>
+</div>`;
+}).join("");
+
+document.getElementById("total").innerText="₹"+total;
+document.getElementById("count").innerText=count;
+}
+
+function sendOrder(){
+
+let ids=Object.keys(cart);
+
+if(!ids.length){
+alert("पहले Cart में product जोड़ें।");
+location.href="#shop";
+return;
+}
+
+let name=document.getElementById("name").value.trim();
+let mobile=document.getElementById("mobile").value.trim();
+let address=document.getElementById("address").value.trim();
+let payment=document.getElementById("payment").value;
+
+if(!name||!mobile||!address){
+alert("कृपया नाम, मोबाइल और पता भरें।");
+return;
+}
+
+let total=0;
+
+let message=
+"🛍️ DhuruvShop Order\n\n"+
+"👤 नाम: "+name+"\n"+
+"📞 मोबाइल: "+mobile+"\n"+
+"📍 पता: "+address+"\n"+
+"💳 Payment: "+payment+"\n\n"+
+"🛒 Products:\n";
+
+ids.forEach(id=>{
+
+let p=products[id];
+let q=cart[id];
+let sub=p[2]*q;
+
+total+=sub;
+
+message+=p[0]+" × "+q+" = ₹"+sub+"\n";
+});
+
+message+="\n💰 Total: ₹"+total;
+
+window.open(
+"https://wa.me/919045682863?text="+
+encodeURIComponent(message),
+"_blank"
+);
+}
+
+renderProducts();
+renderCart();
+
+</script>
+
 </body>
-</html>
+                                 </html>
