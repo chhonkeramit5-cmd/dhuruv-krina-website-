@@ -1,551 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-<meta name="google-site-verification" content="82lqtbolKexUjdGyK3MFqxDeQyMjhxcXwQyAy6UUy5c" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="DhuruvShop - किराना और पशु आहार की ऑनलाइन दुकान">
-<title>DhuruvShop | किराना & पशु आहार</title>
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>India's Mall V5</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f7f5;color:#222}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-header{
-background:linear-gradient(135deg,#075e2b,#19a957);
-color:#fff;text-align:center;padding:25px 15px
-}
-header .logo{font-size:48px}
-header h1{font-size:32px;margin:5px}
-header p{font-size:15px}
-nav{
-position:sticky;top:0;z-index:50;background:#fff;
-padding:13px 5px;text-align:center;
-box-shadow:0 2px 12px #0002
-}
-nav a{
-text-decoration:none;color:#075e2b;font-weight:bold;
-margin:0 7px;font-size:14px
-}
-.hero{
-text-align:center;padding:55px 15px;
-background:linear-gradient(#e5f8eb,#f5f7f5)
-}
-.hero h2{font-size:31px;color:#075e2b;margin-bottom:12px}
-.hero p{font-size:17px;margin-bottom:22px}
-.btn{
-display:inline-block;border:0;border-radius:30px;
-padding:13px 21px;margin:4px;
-background:#075e2b;color:white;
-font-weight:bold;text-decoration:none
-}
-.green{background:#20ad57!important}
-.orange{background:#f28c00!important}
-section{max-width:1150px;margin:auto;padding:38px 15px}
-.title{text-align:center;color:#075e2b;font-size:28px}
-.subtitle{text-align:center;color:#687168;margin:8px 0 25px}
-.tools{
-background:#fff;padding:18px;border-radius:18px;
-box-shadow:0 3px 15px #0001;margin-bottom:25px
-}
-.search{
-width:100%;padding:14px 18px;border:2px solid #dce8de;
-border-radius:30px;outline:0;margin-bottom:13px
-}
-.search:focus{border-color:#20ad57}
-.categories{display:flex;gap:8px;overflow-x:auto}
-.categories button{
-border:0;background:#e8f5eb;color:#075e2b;
-padding:9px 15px;border-radius:22px;white-space:nowrap;
-font-weight:bold
-}
-.categories button.active{background:#075e2b;color:#fff}
-.grid{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
-gap:16px
-}
-.product{
-background:#fff;border-radius:18px;padding:12px;
-box-shadow:0 4px 16px #00000012;
-border:1px solid #e7eee7;text-align:center;
-position:relative;overflow:hidden
-}
-.product-img{
-height:150px;border-radius:14px;background:#f2f8f3;
-display:flex;align-items:center;justify-content:center;
-overflow:hidden;margin-bottom:12px
-}
-.product-img img{width:100%;height:100%;object-fit:contain}
-.offer{
-position:absolute;top:9px;left:9px;background:#e53935;
-color:white;padding:4px 8px;border-radius:10px;
-font-size:11px;font-weight:bold
-}
-.product h3{color:#075e2b;font-size:18px;margin-bottom:5px}
-.unit{font-size:13px;color:#777}
-.price{font-size:20px;color:#159447;font-weight:bold;margin:8px}
-.old{font-size:13px;color:#999;text-decoration:line-through;margin-right:5px}
-.qty{
-display:flex;align-items:center;justify-content:center;
-gap:10px;margin:10px
-}
-.qty button{
-width:34px;height:34px;border:0;border-radius:50%;
-background:#e7f4ea;color:#075e2b;font-size:20px;font-weight:bold
-}
-.qty span{font-weight:bold;min-width:22px}
-.add{
-width:100%;border:0;padding:11px;border-radius:25px;
-background:#075e2b;color:white;font-weight:bold
-}
-.cart{
-background:white;border-radius:20px;padding:18px;
-box-shadow:0 4px 18px #0001
-}
-.cart-item{
-display:flex;justify-content:space-between;align-items:center;
-gap:10px;padding:13px 0;border-bottom:1px solid #eee
-}
-.cart-name{font-weight:bold;color:#075e2b}
-.cart-price{font-size:13px;color:#666}
-.cart-controls{display:flex;align-items:center;gap:7px}
-.cart-controls button{
-width:30px;height:30px;border:0;border-radius:50%;
-background:#e8f5eb;color:#075e2b
-}
-.total{
-display:flex;justify-content:space-between;
-font-size:22px;font-weight:bold;color:#075e2b;
-padding:18px 0
-}
-.empty{text-align:center;padding:25px;color:#777}
-.checkout{
-background:#fff;border-radius:20px;padding:22px;
-box-shadow:0 4px 18px #0001
-}
-.checkout label{display:block;font-weight:bold;margin-top:8px}
-.checkout input,.checkout textarea,.checkout select{
-width:100%;padding:13px;margin:6px 0 10px;
-border:1px solid #d7e0d8;border-radius:10px;outline:0
-}
-.checkout textarea{min-height:90px}
-.order{
-width:100%;border:0;border-radius:30px;
-padding:15px;background:#20ad57;color:white;
-font-size:17px;font-weight:bold
-}
-.contact{
-max-width:none;background:#075e2b;color:#fff;text-align:center
-}
-.contact .title{color:#fff}
-.phone{font-size:28px;font-weight:bold;margin:12px}
-footer{
-background:#06421f;color:white;text-align:center;padding:22px
-}
-.small{font-size:12px;opacity:.8;margin-top:8px}
-.cart-float{
-position:fixed;right:18px;bottom:18px;z-index:100;
-width:62px;height:62px;border:0;border-radius:50%;
-background:#075e2b;color:white;font-size:25px;
-box-shadow:0 5px 20px #0004
-}
-.count{
-position:absolute;right:-2px;top:-2px;width:22px;height:22px;
-border-radius:50%;background:#e53935;color:white;
-font-size:12px;display:flex;align-items:center;justify-content:center
-}
-@media(max-width:500px){
-header h1{font-size:25px}
-.hero h2{font-size:25px}
-.grid{grid-template-columns:repeat(2,1fr);gap:10px}
-.product{padding:9px}
-.product-img{height:115px}
-.product h3{font-size:15px}
-.price{font-size:17px}
-nav a{font-size:12px;margin:0 4px}
-}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;color:#172033}.hide{display:none!important}
+header{background:#111827;color:#fff;padding:14px 16px;position:sticky;top:0;z-index:20}.top{display:flex;justify-content:space-between;align-items:center}.logo{font-size:22px;font-weight:800}.search{margin-top:10px;background:#fff;color:#64748b;border-radius:12px;padding:10px}.search input{border:0;outline:0;width:90%;font-size:15px}
+.hero{margin:14px 16px;padding:22px;border-radius:20px;color:#fff;background:linear-gradient(135deg,#1d4ed8,#7c3aed)}.hero h2{margin:0}.hero button,.primary,.add{border:0;border-radius:10px;padding:11px 14px;font-weight:700}.hero button{background:#fff}
+.chips{display:flex;gap:8px;overflow:auto;padding:0 16px}.chip{white-space:nowrap;border:1px solid #ddd;background:#fff;border-radius:20px;padding:9px 13px}
+h3{margin:18px 16px 10px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 100px}.card{background:#fff;border-radius:16px;padding:10px;box-shadow:0 2px 9px #0001}.pic{height:115px;background:#eef2f7;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:44px}.name{font-weight:700;margin-top:8px}.seller{font-size:11px;color:#64748b}.rating{font-size:12px;color:#b45309}.price{font-size:18px;font-weight:800;margin:5px 0}.old{text-decoration:line-through;color:#94a3b8;font-size:12px}.add{width:100%;background:#111827;color:#fff}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:9px;z-index:25}nav button{border:0;background:none;font-size:12px}.badge{background:#ef4444;color:#fff;border-radius:12px;padding:2px 6px}
+.panel{position:fixed;inset:0;background:#f4f6f9;z-index:30;overflow:auto}.bar{background:#111827;color:#fff;padding:15px}.close{float:right;background:#fff;border:0;border-radius:8px;padding:7px}.box{background:#fff;margin:12px 16px;padding:15px;border-radius:15px}.row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}.full{width:100%;background:#111827;color:#fff;border:0;border-radius:10px;padding:12px}input,select,textarea{width:100%;padding:11px;border:1px solid #d6dce5;border-radius:10px;margin:5px 0}.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat div{background:#f1f5f9;padding:14px;border-radius:12px}.toast{position:fixed;bottom:75px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 15px;border-radius:10px;z-index:50}
 </style>
 </head>
-
 <body>
+<header><div class="top"><div class="logo">🇮🇳 India's Mall</div><div>🔔</div></div><div class="search">🔎 <input id="search" placeholder="Search products..." oninput="searchProducts()"></div></header>
+<section class="hero"><h2>India's Mega Marketplace</h2><p>Buy • Sell • Earn • Grow</p><button onclick="openPanel('seller')">🏪 Seller Center</button></section>
+<div class="chips"><button class="chip" onclick="filter('All')">All</button><button class="chip" onclick="filter('Fashion')">👕 Fashion</button><button class="chip" onclick="filter('Electronics')">📱 Electronics</button><button class="chip" onclick="filter('Home')">🏠 Home</button><button class="chip" onclick="filter('Beauty')">✨ Beauty</button><button class="chip" onclick="filter('Gifts')">🎁 Gifts</button></div>
+<h3>🔥 Popular Products</h3><div id="products" class="grid"></div>
 
-<header>
-<div class="logo">🛍️</div>
-<h1>DhuruvShop</h1>
-<p>किराना • पशु आहार • रोज़मर्रा का सामान</p>
-</header>
+<div id="product" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('product')">✕</button><b>Product Details</b></div><div id="productBody"></div></div>
+<div id="cart" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('cart')">✕</button><b>🛒 Cart</b></div><div class="box" id="cartBody"></div><div class="box"><b id="cartTotal">Total: ₹0</b><button class="full" style="margin-top:10px" onclick="openCheckout()">Checkout</button></div></div>
+<div id="checkout" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('checkout')">✕</button><b>💳 Checkout</b></div>
+<div class="box"><h3>📍 Delivery Address</h3><input placeholder="Full name"><input placeholder="Mobile number"><input placeholder="House / Street / Area"><input placeholder="City"><input placeholder="PIN code"></div>
+<div class="box"><h3>Payment Method</h3><select id="pay"><option>Cash on Delivery</option><option>UPI — Test</option><option>Debit/Credit Card — Test</option><option>Wallet — Test</option></select><p>🔐 Secure checkout (prototype)</p><button class="full" onclick="placeOrder()">Place Test Order</button></div></div>
 
-<nav>
-<a href="#home">होम</a>
-<a href="#shop">शॉप</a>
-<a href="#cart">🛒 Cart</a>
-<a href="#order">ऑर्डर</a>
-<a href="#contact">संपर्क</a>
-</nav>
+<div id="seller" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('seller')">✕</button><b>🏪 Seller Center</b></div>
+<div class="box"><h2 id="storeTitle">Sell on India's Mall</h2><p>List products, manage orders and track test earnings.</p><button class="full" onclick="openPanel('sellerForm')">Create / Update Store</button></div>
+<div class="box"><div class="stat"><div>📦 Products<br><b id="sProducts">0</b></div><div>🛒 Orders<br><b id="sOrders">0</b></div><div>💰 Sales<br><b id="sSales">₹0</b></div><div>💵 Available Payout<br><b id="sPayout">₹0</b></div></div></div>
+<div class="box"><button class="full" onclick="openPanel('addProduct')">➕ Add Product</button></div>
+<div class="box"><button class="full" onclick="openPanel('payout')">🏦 Payout Center</button></div></div>
 
-<section class="hero" id="home">
-<h2>🛒 DhuruvShop में आपका स्वागत है</h2>
-<p>घर की जरूरत का सामान और पशु आहार आसानी से ऑर्डर करें।</p>
-<a class="btn" href="#shop">🛍️ Shopping करें</a>
-<a class="btn green" href="https://wa.me/919045682863" target="_blank">💬 WhatsApp</a>
-</section>
+<div id="sellerForm" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('sellerForm')">✕</button><b>Seller Registration</b></div><div class="box"><input id="storeName" placeholder="Store name"><input id="sellerName" placeholder="Seller name"><input placeholder="Mobile number"><input placeholder="Email"><input placeholder="Pickup address"><button class="full" onclick="registerSeller()">Save Seller Profile</button></div></div>
+<div id="addProduct" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('addProduct')">✕</button><b>➕ Add Product</b></div><div class="box"><input id="pname" placeholder="Product name"><input id="pprice" type="number" placeholder="Selling price"><input id="pold" type="number" placeholder="MRP"><select id="pcat"><option>Fashion</option><option>Electronics</option><option>Home</option><option>Beauty</option><option>Gifts</option></select><textarea id="pdesc" placeholder="Description"></textarea><button class="full" onclick="addSellerProduct()">Publish Test Product</button></div></div>
+<div id="payout" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('payout')">✕</button><b>🏦 Payout Center</b></div><div class="box"><h2 id="payoutAmount">₹0</h2><p>Available test payout</p><input placeholder="Bank / UPI details (test only)"><button class="full" onclick="toast('Payout request submitted in test mode')">Request Test Payout</button></div><div class="box"><b>Important:</b><p>Real bank/UPI payouts require a secure backend and payment provider.</p></div></div>
 
-<section id="shop">
-<h2 class="title">🛍️ हमारे Products</h2>
-<p class="subtitle">अपना सामान चुनें</p>
+<div id="admin" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('admin')">✕</button><b>🧑‍💼 Admin Dashboard</b></div><div class="box"><h2>Marketplace Overview</h2><div class="stat"><div>Products<br><b id="aProducts">0</b></div><div>Sellers<br><b id="aSellers">0</b></div><div>Orders<br><b id="aOrders">0</b></div><div>GMV<br><b id="aSales">₹0</b></div></div></div>
+<div class="box"><button class="full" onclick="toast('Seller approval queue — test')">✅ Seller Approval</button></div><div class="box"><button class="full" onclick="toast('Product moderation — test')">🛡️ Product Moderation</button></div><div class="box"><button class="full" onclick="toast('Reports dashboard — test')">📊 Reports & Analytics</button></div></div>
 
-<div class="tools">
-<input id="search" class="search"
-placeholder="🔎 Product खोजें..."
-oninput="renderProducts()">
+<div id="profile" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('profile')">✕</button><b>👤 Account</b></div><div class="box"><h2>Customer Account</h2><button class="full" onclick="toast('OTP login test')">Login with Mobile OTP</button></div><div class="box"><div class="row">📦 Orders <button onclick="openOrders()">View</button></div><div class="row">🪙 Rewards <b>250 coins</b></div><div class="row">🎟️ Coupons <b>3</b></div><div class="row">💬 Support <button onclick="toast('Support chat test')">Chat</button></div></div></div>
+<div id="orders" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('orders')">✕</button><b>📦 Orders</b></div><div class="box" id="ordersBody"></div></div>
 
-<div class="categories">
-<button class="active" onclick="category('all',this)">सभी</button>
-<button onclick="category('kirana',this)">🛒 किराना</button>
-<button onclick="category('dal',this)">🫘 दाल</button>
-<button onclick="category('masala',this)">🌶️ मसाले</button>
-<button onclick="category('snacks',this)">🍪 Snacks</button>
-<button onclick="category('drink',this)">🥤 पेय</button>
-<button onclick="category('pashu',this)">🐄 पशु आहार</button>
-</div>
-</div>
-
-<div class="grid" id="products"></div>
-</section>
-
-<section id="cart">
-<h2 class="title">🛒 आपका Cart</h2>
-<p class="subtitle">आपके चुने हुए सामान</p>
-
-<div class="cart">
-<div id="cartItems"></div>
-<div class="total">
-<span>Total</span>
-<span id="total">₹0</span>
-</div>
-<a class="btn green" href="#order" style="width:100%;text-align:center">
-📦 Checkout
-</a>
-</div>
-</section>
-
-<section id="order">
-<h2 class="title">📦 Order Form</h2>
-<p class="subtitle">जानकारी भरें और WhatsApp पर भेजें</p>
-
-<div class="checkout">
-
-<label>👤 नाम</label>
-<input id="name" placeholder="अपना नाम">
-
-<label>📞 मोबाइल नंबर</label>
-<input id="mobile" type="tel" placeholder="मोबाइल नंबर">
-
-<label>📍 पता</label>
-<textarea id="address" placeholder="पूरा पता"></textarea>
-
-<label>💳 Payment</label>
-<select id="payment">
-<option>Cash on Delivery</option>
-<option>UPI / Online Payment</option>
-<option>दुकान से Pickup</option>
-</select>
-
-<button class="order" onclick="sendOrder()">
-💬 WhatsApp पर Order भेजें
-</button>
-
-</div>
-</section>
-
-<section class="contact" id="contact">
-<h2 class="title">📞 संपर्क करें</h2>
-<p>Product की जानकारी या order के लिए संपर्क करें।</p>
-
-<div class="phone">9045682863</div>
-
-<a class="btn" href="tel:9045682863">📞 Call</a>
-<a class="btn green"
-href="https://wa.me/919045682863"
-target="_blank">💬 WhatsApp</a>
-</section>
-
-<footer>
-<p>© 2026 DhuruvShop</p>
-<p class="small">किराना और पशु आहार</p>
-</footer>
-
-<button class="cart-float" onclick="location.href='#cart'">
-🛒 <span class="count" id="count">0</span>
-</button>
-
+<nav><button onclick="location.reload()">🏠<br>Home</button><button onclick="openPanel('seller')">🏪<br>Sell</button><button onclick="openCart()">🛒 <span id="badge" class="badge">0</span><br>Cart</button><button onclick="openPanel('profile')">👤<br>Account</button></nav>
+<div id="toast" class="toast hide"></div>
 <script>
-
-const products=[
-
-["चावल","1 Kg",60,70,"kirana","🍚","OFF"],
-["गेहूँ आटा","1 Kg",45,50,"kirana","🌾",""],
-["बासमती चावल","1 Kg",110,125,"kirana","🍚","SALE"],
-["चीनी","1 Kg",48,52,"kirana","🍬",""],
-["नमक","1 Kg",25,28,"kirana","🧂",""],
-["सरसों तेल","1 L",145,160,"kirana","🛢️","SALE"],
-["रिफाइंड तेल","1 L",135,150,"kirana","🛢️",""],
-["चाय","250 g",85,95,"drink","☕",""],
-["कॉफी","100 g",95,110,"drink","☕",""],
-["बिस्कुट","Packet",10,12,"snacks","🍪",""],
-["मैगी","Packet",14,16,"snacks","🍜",""],
-["नूडल्स","Packet",30,35,"snacks","🍜",""],
-["टूथपेस्ट","100 g",55,65,"kirana","🪥",""],
-["साबुन","1 Pc",35,40,"kirana","🧼",""],
-["डिटर्जेंट","1 Kg",70,80,"kirana","🧺",""],
-["हल्दी","100 g",25,30,"masala","🌶️",""],
-["लाल मिर्च","100 g",30,35,"masala","🌶️",""],
-["धनिया","100 g",28,32,"masala","🌿",""],
-["गरम मसाला","100 g",55,65,"masala","🌶️",""],
-["जीरा","100 g",45,50,"masala","🌿",""],
-["अरहर दाल","1 Kg",150,165,"dal","🫘","SALE"],
-["मूंग दाल","1 Kg",125,140,"dal","🫘",""],
-["मसूर दाल","1 Kg",105,120,"dal","🫘",""],
-["चना दाल","1 Kg",90,100,"dal","🫘",""],
-["उड़द दाल","1 Kg",130,145,"dal","🫘",""],
-["राजमा","1 Kg",140,155,"dal","🫘",""],
-["काबुली चना","1 Kg",120,135,"dal","🫘",""],
-["कोल्ड ड्रिंक","750 ml",45,50,"drink","🥤",""],
-["जूस","1 L",100,115,"drink","🧃","SALE"],
-["नमकीन","200 g",45,50,"snacks","🥨",""],
-["चिप्स","Packet",20,25,"snacks","🥔",""],
-["टॉफी","100 g",35,40,"snacks","🍬",""],
-["सूजी","1 Kg",55,65,"kirana","🌾",""],
-["मैदा","1 Kg",50,60,"kirana","🌾",""],
-["बेसन","1 Kg",80,90,"kirana","🌾",""],
-["पोहा","1 Kg",60,70,"kirana","🌾",""],
-["पशु आहार","1 Kg",35,40,"pashu","🐄",""],
-["डेयरी फीड","1 Kg",38,45,"pashu","🥣","SALE"],
-["पशु दाना","1 Kg",32,38,"pashu","🌾",""],
-["गेहूँ चोकर","1 Kg",28,32,"pashu","🌾",""],
-["सरसों खली","1 Kg",42,48,"pashu","🌾",""],
-["बिनौला","1 Kg",35,40,"pashu","🌾",""],
-["मक्का दाना","1 Kg",30,35,"pashu","🌽",""],
-["जौ","1 Kg",32,37,"pashu","🌾",""],
-["चारा","1 Kg",20,25,"pashu","🌿",""],
-["पशु मिनरल मिक्स","1 Kg",120,140,"pashu","🥣","SALE"],
-["कैल्शियम फीड","1 Kg",95,110,"pashu","🥣",""],
-["पशु फीड प्रीमियम","1 Kg",55,65,"pashu","🐄","SALE"]
-];
-
-let cart=JSON.parse(localStorage.getItem("dhuruvCart")||"{}");
-let current="all";
-
-function img(icon,name){
-
-let svg=`
-<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500">
-<rect width="700" height="500" rx="40" fill="#f0f8f2"/>
-<rect x="30" y="30" width="640" height="440" rx="35" fill="white"/>
-<text x="350" y="105" text-anchor="middle"
-font-family="Arial" font-size="30" font-weight="bold"
-fill="#075e2b">DHURUVSHOP</text>
-<circle cx="350" cy="265" r="130" fill="#e7f5ea"/>
-<text x="350" y="315" text-anchor="middle" font-size="135">${icon}</text>
-<text x="350" y="425" text-anchor="middle"
-font-family="Arial" font-size="30" font-weight="bold"
-fill="#075e2b">${name}</text>
-</svg>`;
-
-return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
-}
-
-function category(c,b){
-
-current=c;
-
-document.querySelectorAll(".categories button")
-.forEach(x=>x.classList.remove("active"));
-
-b.classList.add("active");
-
-renderProducts();
-}
-
-function renderProducts(){
-
-let search=document.getElementById("search").value.toLowerCase();
-
-let list=products.filter(p=>
-(current==="all"||p[4]===current)&&
-p[0].toLowerCase().includes(search)
-);
-
-document.getElementById("products").innerHTML=list.map((p,i)=>{
-
-let id=products.indexOf(p);
-let q=cart[id]||0;
-
-return `
-<div class="product">
-
-${p[6]?`<span class="offer">${p[6]}</span>`:""}
-
-<div class="product-img">
-<img src="${img(p[5],p[0])}" alt="${p[0]}">
-</div>
-
-<h3>${p[0]}</h3>
-<div class="unit">${p[1]}</div>
-
-<div class="price">
-<span class="old">₹${p[3]}</span>
-₹${p[2]}
-</div>
-
-<div class="qty">
-<button onclick="change(${id},-1)">−</button>
-<span>${q}</span>
-<button onclick="change(${id},1)">+</button>
-</div>
-
-<button class="add" onclick="add(${id})">
-🛒 Add to Cart
-</button>
-
-</div>`;
-}).join("");
-
-}
-
-function save(){
-localStorage.setItem("dhuruvCart",JSON.stringify(cart));
-}
-
-function change(id,n){
-
-cart[id]=(cart[id]||0)+n;
-
-if(cart[id]<=0)delete cart[id];
-
-save();
-renderProducts();
-renderCart();
-}
-
-function add(id){
-
-cart[id]=(cart[id]||0)+1;
-
-save();
-renderProducts();
-renderCart();
-
-location.hash="cart";
-}
-
-function remove(id){
-
-delete cart[id];
-
-save();
-renderProducts();
-renderCart();
-}
-
-function renderCart(){
-
-let box=document.getElementById("cartItems");
-let total=0,count=0;
-let ids=Object.keys(cart);
-
-if(!ids.length){
-
-box.innerHTML='<div class="empty">🛒 Cart खाली है</div>';
-document.getElementById("total").innerText="₹0";
-document.getElementById("count").innerText="0";
-return;
-}
-
-box.innerHTML=ids.map(id=>{
-
-let p=products[id];
-let q=cart[id];
-let sub=p[2]*q;
-
-total+=sub;
-count+=q;
-
-return `
-<div class="cart-item">
-<div>
-<div class="cart-name">${p[0]}</div>
-<div class="cart-price">₹${p[2]} × ${q} = ₹${sub}</div>
-</div>
-
-<div class="cart-controls">
-<button onclick="change(${id},-1)">−</button>
-<b>${q}</b>
-<button onclick="change(${id},1)">+</button>
-<button onclick="remove(${id})">🗑️</button>
-</div>
-</div>`;
-}).join("");
-
-document.getElementById("total").innerText="₹"+total;
-document.getElementById("count").innerText=count;
-}
-
-function sendOrder(){
-
-let ids=Object.keys(cart);
-
-if(!ids.length){
-alert("पहले Cart में product जोड़ें।");
-location.href="#shop";
-return;
-}
-
-let name=document.getElementById("name").value.trim();
-let mobile=document.getElementById("mobile").value.trim();
-let address=document.getElementById("address").value.trim();
-let payment=document.getElementById("payment").value;
-
-if(!name||!mobile||!address){
-alert("कृपया नाम, मोबाइल और पता भरें।");
-return;
-}
-
-let total=0;
-
-let message=
-"🛍️ DhuruvShop Order\n\n"+
-"👤 नाम: "+name+"\n"+
-"📞 मोबाइल: "+mobile+"\n"+
-"📍 पता: "+address+"\n"+
-"💳 Payment: "+payment+"\n\n"+
-"🛒 Products:\n";
-
-ids.forEach(id=>{
-
-let p=products[id];
-let q=cart[id];
-let sub=p[2]*q;
-
-total+=sub;
-
-message+=p[0]+" × "+q+" = ₹"+sub+"\n";
-});
-
-message+="\n💰 Total: ₹"+total;
-
-window.open(
-"https://wa.me/919045682863?text="+
-encodeURIComponent(message),
-"_blank"
-);
-}
-
-renderProducts();
-renderCart();
-
+let base=[
+{id:1,name:"Smart Watch Pro",cat:"Electronics",price:1499,old:1999,emoji:"⌚",rating:"4.6",seller:"Tech World",desc:"Smart watch for everyday use."},
+{id:2,name:"Wireless Headphones",cat:"Electronics",price:799,old:1299,emoji:"🎧",rating:"4.5",seller:"Tech World",desc:"Wireless headphones with clear sound."},
+{id:3,name:"Sports Shoes",cat:"Fashion",price:999,old:1599,emoji:"👟",rating:"4.4",seller:"Fashion Hub",desc:"Comfortable sports shoes."},
+{id:4,name:"Travel Backpack",cat:"Fashion",price:699,old:999,emoji:"🎒",rating:"4.3",seller:"Fashion Hub",desc:"Multi-pocket travel backpack."},
+{id:5,name:"Home Lamp",cat:"Home",price:499,old:799,emoji:"💡",rating:"4.2",seller:"Home Store",desc:"Modern decorative lamp."},
+{id:6,name:"Gift Box",cat:"Gifts",price:599,old:899,emoji:"🎁",rating:"4.7",seller:"Gift Corner",desc:"Ready-to-gift box."}];
+let sellerProducts=JSON.parse(localStorage.getItem("v5products")||"[]"),products=[...base,...sellerProducts];
+let cart=JSON.parse(localStorage.getItem("v5cart")||"[]"),orders=JSON.parse(localStorage.getItem("v5orders")||"[]"),seller=JSON.parse(localStorage.getItem("v5seller")||"null");
+function save(){localStorage.setItem("v5products",JSON.stringify(sellerProducts));localStorage.setItem("v5cart",JSON.stringify(cart));localStorage.setItem("v5orders",JSON.stringify(orders));localStorage.setItem("v5seller",JSON.stringify(seller));document.getElementById("badge").textContent=cart.reduce((s,x)=>s+x.qty,0);updateStats()}
+function render(list=products){document.getElementById("products").innerHTML=list.map(p=>`<div class="card"><div class="pic">${p.emoji}</div><div class="name">${p.name}</div><div class="seller">Sold by: <b>${p.seller}</b></div><div class="rating">⭐ ${p.rating} • Free delivery</div><div class="price">₹${p.price} <span class="old">₹${p.old}</span></div><button class="add" onclick="add(${p.id})">Add to Cart</button><button style="width:100%;border:0;background:#fff;padding:8px" onclick="details(${p.id})">View Details</button></div>`).join("")}
+function add(id){let x=cart.find(a=>a.id===id);x?x.qty++:cart.push({id,qty:1});save();toast("Added to cart")}
+function details(id){let p=products.find(x=>x.id===id);document.getElementById("productBody").innerHTML=`<div class="box"><div class="pic" style="height:210px;font-size:85px">${p.emoji}</div><h2>${p.name}</h2><p>Sold by <b>${p.seller}</b></p><p>⭐ ${p.rating} • 🚚 Free delivery • 🔄 Easy returns</p><h2>₹${p.price} <small class="old">₹${p.old}</small></h2><p>${p.desc}</p><button class="full" onclick="add(${p.id});closePanel('product')">Add to Cart</button></div>`;openPanel("product")}
+function openCart(){let e=document.getElementById("cartBody");e.innerHTML=cart.length?cart.map(x=>{let p=products.find(q=>q.id===x.id);return `<div class="row"><span>${p.emoji} ${p.name}<br>₹${p.price} × ${x.qty}</span><span><button onclick="change(${p.id},-1)">−</button> ${x.qty} <button onclick="change(${p.id},1)">+</button></span></div>`}).join(""):"<p>Cart is empty.</p>";document.getElementById("cartTotal").textContent="Total: ₹"+cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);openPanel("cart")}
+function change(id,n){let x=cart.find(a=>a.id===id);x.qty+=n;if(x.qty<=0)cart=cart.filter(a=>a.id!==id);save();openCart()}
+function openCheckout(){if(!cart.length)return toast("Cart is empty");closePanel("cart");openPanel("checkout")}
+function placeOrder(){if(!cart.length)return;let total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);orders.unshift({id:"IM"+Date.now().toString().slice(-6),total,status:"Order Placed",date:new Date().toLocaleString()});cart=[];save();closePanel("checkout");toast("🎉 Test order placed")}
+function registerSeller(){let store=document.getElementById("storeName").value.trim();if(!store)return toast("Store name required");seller={store,name:document.getElementById("sellerName").value||"Seller"};save();closePanel("sellerForm");document.getElementById("storeTitle").textContent="🏪 "+store;toast("Seller profile saved")}
+function addSellerProduct(){if(!seller)return toast("Create seller account first");let name=document.getElementById("pname").value.trim(),price=Number(document.getElementById("pprice").value);if(!name||!price)return toast("Product name and price required");let p={id:Date.now(),name,price,old:Number(document.getElementById("pold").value)||price,cat:document.getElementById("pcat").value,emoji:"📦",rating:"New",seller:seller.store,desc:document.getElementById("pdesc").value||"Seller product"};sellerProducts.push(p);products.push(p);save();render();closePanel("addProduct");toast("Product published")}
+function openOrders(){document.getElementById("ordersBody").innerHTML=orders.length?orders.map(o=>`<div class="row"><span><b>#${o.id}</b><br>${o.date}<br>🚚 ${o.status}</span><b>₹${o.total}</b></div>`).join(""):"<p>No orders yet.</p>";openPanel("orders")}
+function updateStats(){let sales=orders.reduce((s,o)=>s+o.total,0);document.getElementById("sProducts").textContent=sellerProducts.length;document.getElementById("sOrders").textContent=orders.length;document.getElementById("sSales").textContent="₹"+sales;document.getElementById("sPayout").textContent="₹"+Math.floor(sales*.9);document.getElementById("payoutAmount").textContent="₹"+Math.floor(sales*.9);document.getElementById("aProducts").textContent=products.length;document.getElementById("aSellers").textContent=seller?1:0;document.getElementById("aOrders").textContent=orders.length;document.getElementById("aSales").textContent="₹"+sales}
+function filter(c){render(c==="All"?products:products.filter(p=>p.cat===c))}
+function searchProducts(){let q=document.getElementById("search").value.toLowerCase();render(products.filter(p=>(p.name+p.cat+p.seller+p.desc).toLowerCase().includes(q)))}
+function openPanel(id){document.getElementById(id).classList.remove("hide")}
+function closePanel(id){document.getElementById(id).classList.add("hide")}
+function toast(t){let e=document.getElementById("toast");e.textContent=t;e.classList.remove("hide");setTimeout(()=>e.classList.add("hide"),1800)}
+save();render();
 </script>
-
-</body>
-                                 </html>
+</body></html>
