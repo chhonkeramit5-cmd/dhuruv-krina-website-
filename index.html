@@ -23,19 +23,6 @@ nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid 
 <div id="cart" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('cart')">✕</button><b>🛒 Cart</b></div><div class="box" id="cartBody"></div><div class="box"><b id="cartTotal">Total: ₹0</b><button class="full" style="margin-top:10px" onclick="openCheckout()">Checkout</button></div></div>
 <div id="checkout" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('checkout')">✕</button><b>💳 Checkout</b></div>
 <div class="box"><h3>📍 Delivery Address</h3><input placeholder="Full name"><input placeholder="Mobile number"><input placeholder="House / Street / Area"><input placeholder="City"><input placeholder="PIN code"></div>
-
-<div class="box" id="imPaymentBox">
- <h3>💳 Payment</h3>
- <select id="imPaymentMethod">
-  <option value="cod">Cash on Delivery</option>
-  <option value="upi">UPI (Test)</option>
-  <option value="card">Debit/Credit Card (Test)</option>
-  <option value="netbanking">Net Banking (Test)</option>
-  <option value="wallet">Wallet (Test)</option>
- </select>
- <button class="full" style="margin-top:8px" onclick="imPayTest()">Pay & Place Test Order</button>
- <p style="font-size:12px;color:#64748b">Test mode only. Real payments require a payment gateway and secure backend.</p>
-</div>
 <div class="box"><h3>Payment Method</h3><select id="pay"><option>Cash on Delivery</option><option>UPI — Test</option><option>Debit/Credit Card — Test</option><option>Wallet — Test</option></select><p>🔐 Secure checkout (prototype)</p><button class="full" onclick="placeOrder()">Place Test Order</button></div></div>
 
 <div id="seller" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('seller')">✕</button><b>🏪 Seller Center</b></div>
@@ -54,7 +41,7 @@ nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid 
 <div id="profile" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('profile')">✕</button><b>👤 Account</b></div><div class="box"><h2>Customer Account</h2><button class="full" onclick="toast('OTP login test')">Login with Mobile OTP</button></div><div class="box"><div class="row">📦 Orders <button onclick="openOrders()">View</button></div><div class="row">🪙 Rewards <b>250 coins</b></div><div class="row">🎟️ Coupons <b>3</b></div><div class="row">💬 Support <button onclick="toast('Support chat test')">Chat</button></div></div></div>
 <div id="orders" class="panel hide"><div class="bar"><button class="close" onclick="closePanel('orders')">✕</button><b>📦 Orders</b></div><div class="box" id="ordersBody"></div></div>
 
-<nav><button onclick="location.reload()">🏠<br>Home</button><button onclick="openPanel('seller')">🏪<br>Sell</button><button onclick="openCart()">🛒 <span id="badge" class="badge">0</span><br>Cart</button><button onclick="IndiasMallOpenAuth()">👤<br>Account</button></nav>
+<nav><button onclick="location.reload()">🏠<br>Home</button><button onclick="openPanel('seller')">🏪<br>Sell</button><button onclick="openCart()">🛒 <span id="badge" class="badge">0</span><br>Cart</button><button onclick="openPanel('profile')">👤<br>Account</button></nav>
 <div id="toast" class="toast hide"></div>
 <script>
 let base=[
@@ -85,101 +72,4 @@ function closePanel(id){document.getElementById(id).classList.add("hide")}
 function toast(t){let e=document.getElementById("toast");e.textContent=t;e.classList.remove("hide");setTimeout(()=>e.classList.add("hide"),1800)}
 save();render();
 </script>
-
-<!-- India’s Mall V5: Signup/Login upgrade -->
-<style>
-#imAuthOverlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:99999;display:none;align-items:center;justify-content:center;padding:16px}
-#imAuthBox{width:min(420px,100%);background:#fff;border-radius:18px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.3);font-family:Arial,sans-serif}
-#imAuthBox h2{margin:0 0 8px}.imAuthTabs{display:flex;gap:8px;margin:12px 0}.imAuthTabs button{flex:1;padding:10px;border:0;border-radius:10px;background:#eee}.imAuthTabs .on{background:#111;color:#fff}
-#imAuthBox input{width:100%;box-sizing:border-box;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:10px}
-#imAuthBox .imPrimary{width:100%;padding:12px;border:0;border-radius:10px;background:#111;color:#fff;font-weight:700;margin-top:8px}
-#imAuthClose{float:right;border:0;background:transparent;font-size:22px}.imAuthMsg{font-size:13px;margin-top:10px}
-</style>
-<div id="imAuthOverlay">
- <div id="imAuthBox">
-  <button id="imAuthClose" aria-label="Close">×</button>
-  <h2>India's Mall Account</h2>
-  <div class="imAuthTabs">
-   <button id="imLoginTab" class="on">Login</button>
-   <button id="imSignupTab">Sign Up</button>
-  </div>
-  <input id="imName" placeholder="Full name" style="display:none">
-  <input id="imEmail" type="email" placeholder="Email">
-  <input id="imPhone" inputmode="tel" placeholder="Mobile number">
-  <input id="imPassword" type="password" placeholder="Password">
-  <button id="imAuthSubmit" class="imPrimary">Login</button>
-  <div id="imAuthMsg" class="imAuthMsg"></div>
- </div>
-</div>
-<script>
-(function(){
- const O=document.getElementById('imAuthOverlay'), N=document.getElementById('imName'),
- E=document.getElementById('imEmail'), P=document.getElementById('imPhone'),
- PW=document.getElementById('imPassword'), S=document.getElementById('imAuthSubmit'),
- M=document.getElementById('imAuthMsg'), LT=document.getElementById('imLoginTab'),
- ST=document.getElementById('imSignupTab');
- let mode='login';
- function render(){
-   N.style.display=mode==='signup'?'block':'none';
-   S.textContent=mode==='signup'?'Create Account':'Login';
-   LT.classList.toggle('on',mode==='login'); ST.classList.toggle('on',mode==='signup'); M.textContent='';
- }
- function open(){O.style.display='flex';render()}
- function close(){O.style.display='none'}
- LT.onclick=()=>{mode='login';render()}; ST.onclick=()=>{mode='signup';render()};
- document.getElementById('imAuthClose').onclick=close;
- O.addEventListener('click',e=>{if(e.target===O)close()});
- S.onclick=()=>{
-   const key='indiasMallUsersV5', users=JSON.parse(localStorage.getItem(key)||'[]');
-   const email=E.value.trim().toLowerCase(), phone=P.value.trim(), pass=PW.value;
-   if(!email || !phone || !pass || (mode==='signup'&&!N.value.trim())){M.textContent='Please fill all required fields.';return}
-   if(mode==='signup'){
-     if(users.some(u=>u.email===email)){M.textContent='Account already exists. Please login.';return}
-     users.push({name:N.value.trim(),email,phone,password:pass,createdAt:new Date().toISOString()});
-     localStorage.setItem(key,JSON.stringify(users));
-     localStorage.setItem('indiasMallCurrentUserV5',JSON.stringify(users[users.length-1]));
-     M.textContent='Account created successfully.';
-     setTimeout(close,600);
-   }else{
-     const u=users.find(x=>x.email===email&&x.password===pass);
-     if(!u){M.textContent='Invalid email or password.';return}
-     localStorage.setItem('indiasMallCurrentUserV5',JSON.stringify(u));
-     M.textContent='Login successful.';
-     setTimeout(close,600);
-   }
- };
- window.IndiasMallOpenAuth=open;
- // Add an Account/Login launcher to common header/button areas if no obvious launcher exists.
- const existing=[...document.querySelectorAll('button,a')].find(el=>/login|sign\s*up|account/i.test(el.textContent||''));
- if(!existing){
-   const b=document.createElement('button'); b.textContent='Login / Sign Up';
-   b.style.cssText='position:fixed;right:12px;top:12px;z-index:9998;padding:9px 12px;border:0;border-radius:10px;background:#111;color:#fff';
-   b.onclick=open; document.body.appendChild(b);
- } else existing.addEventListener('click',e=>{e.preventDefault();open()});
-})();
-</script>
-
-
-<script>
-(function(){
- const g=document.getElementById('imGoogleBtn');
- if(g) g.onclick=function(){
-   // Demo only: real Google Sign-In requires Google Identity Services + OAuth client configuration.
-   const demo={name:"Google User",email:"google-demo@example.com",provider:"google",createdAt:new Date().toISOString()};
-   localStorage.setItem('indiasMallCurrentUserV5',JSON.stringify(demo));
-   const m=document.getElementById('imAuthMsg'); if(m) m.textContent='Google demo login successful.';
-   setTimeout(()=>{const o=document.getElementById('imAuthOverlay'); if(o)o.style.display='none';},700);
- };
- window.imPayTest=function(){
-   const method=document.getElementById('imPaymentMethod')?.value||'cod';
-   if(typeof cart!=="undefined" && !cart.length){ if(typeof toast==="function")toast("Cart is empty"); return; }
-   const label={cod:"Cash on Delivery",upi:"UPI Test",card:"Card Test",netbanking:"Net Banking Test",wallet:"Wallet Test"}[method]||method;
-   if(typeof placeOrder==="function"){
-     placeOrder();
-     setTimeout(()=>{if(typeof toast==="function")toast("Payment test: "+label+" successful");},250);
-   }
- };
-})();
-</script>
-
 </body></html>
